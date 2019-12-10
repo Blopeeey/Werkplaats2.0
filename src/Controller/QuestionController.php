@@ -55,8 +55,11 @@ class QuestionController extends AbstractController
      */
     public function show(Question $question): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $answers = $em->getRepository('App:Option')->findBy(['q_id' => $question->getId()]);
         return $this->render('question/show.html.twig', [
             'question' => $question,
+            'answer' => $answers
         ]);
     }
 

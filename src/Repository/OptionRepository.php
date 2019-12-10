@@ -2,21 +2,21 @@
 
 namespace App\Repository;
 
-use App\Entity\Choice;
+use App\Entity\Option;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Choice|null find($id, $lockMode = null, $lockVersion = null)
- * @method Choice|null findOneBy(array $criteria, array $orderBy = null)
- * @method Choice[]    findAll()
- * @method Choice[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Option|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Option|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Option[]    findAll()
+ * @method Option[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ChoiceRepository extends ServiceEntityRepository
+class OptionRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Choice::class);
+        parent::__construct($registry, Option::class);
     }
 
     // /**

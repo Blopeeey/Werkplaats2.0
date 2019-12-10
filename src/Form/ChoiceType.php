@@ -2,31 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Question;
+use App\Entity\Choice;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class QuestionType extends AbstractType
+class ChoiceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('naam')
             ->add('description')
-            ->add('s_id')
-            ->add('cat_id')
-            ->add('recipe_tags', CollectionType::class, array(
-                'entry_type' => OptionType::class,
-                'allow_add' => true,
-                'by_reference' => false,
-            ));
+            ->add('type')
+            ->add('q_id')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Question::class,
+            'data_class' => Choice::class,
         ]);
     }
 }

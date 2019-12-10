@@ -9,14 +9,14 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ question.id }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ question.description }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ question.id }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ question.description }}</td>
+        </tr>
         </tbody>
     </table>
 
@@ -25,4 +25,33 @@
     <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
 
     {{ include('question/_delete_form.html.twig') }}
+
+    <div class="container">
+        <h3 style="">Answers</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for answer in answer %}
+                <tr>
+                    <td>{{ answer.id }}</td>
+                    <td>{{ answer.description }}</td>
+                    <td>
+                        <a href="{{ path('option_show', {'id': answer.id}) }}">show</a>
+                        <a href="{{ path('option_edit', {'id': answer.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

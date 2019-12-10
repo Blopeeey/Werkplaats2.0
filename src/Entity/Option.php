@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ChoiceRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\OptionRepository")
  */
-class Choice
+class Option
 {
     /**
      * @ORM\Id()
@@ -87,6 +87,10 @@ class Choice
         $this->q_id = $q_id;
 
         return $this;
+    }
+
+    public function __ToString(){
+        return (string) $this->getId();
     }
 
 

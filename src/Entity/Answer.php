@@ -27,7 +27,7 @@ class Answer
     private $fos_user_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Option")
      */
     private $Choice_id;
 
